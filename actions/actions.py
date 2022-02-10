@@ -22,7 +22,8 @@ class ActionHelloWorld(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         dispatcher.utter_message(text="Hello World!")
         return []
-class Action_Utter_Prova(Action):
+
+class ActionUtterProva(Action):
     def name(self) -> Text:
         return "action_utter_prova"
         

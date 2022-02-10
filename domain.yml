@@ -1,8 +1,7 @@
 version: "3.0"
 
 intents:
-  - greet:
-        use_entities: true
+  - greet
   - goodbye
   - affirm
   - deny
@@ -10,16 +9,16 @@ intents:
   - mood_unhappy
   - bot_challenge
   - fs_choice:
-        use_entities: true
+      use_entities: true
 
 entities:
   - choice
 slots:
-   choice:
-     type: text
-     mappings:
-     - type: from_entity
-       entity: choice
+  choice:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: choice
 
 responses:
   utter_greet:

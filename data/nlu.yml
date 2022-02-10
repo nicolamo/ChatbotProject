@@ -87,11 +87,11 @@ nlu:
 - intent: fs_choice
   examples: |
     - [film](choice)
-    - i'd like [film] (choice)
+    - i'd like [movie](choice)
     
 
 - lookup: choice
   examples: |
     - film
-    - tv series
+    - series
     - movie
