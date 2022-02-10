@@ -28,3 +28,10 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+- story: first path 
+  steps:
+  - intent: greet
+  - action: utter_visualizzazione 
+  - intent: fs_choice
+  - action: utter_prova

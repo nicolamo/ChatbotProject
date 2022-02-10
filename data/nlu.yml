@@ -4,25 +4,30 @@ nlu:
 - intent: greet
   examples: |
     - hey
-    - ciao
-    - salve
     - hello
-    - buon giorno
-    - buona sera
-    - ehila
-    - hey amico
-    - buon pomeriggio
-
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
 - intent: goodbye
   examples: |
     - cu
-    - a presto
-    - arrivederci
-    - buona sera
+    - good by
+    - cee you later
+    - good night
+    - bye
     - goodbye
-    - buon proseguimento di giornata
+    - have a nice day
+    - see you around
     - bye bye
-
+    - see you later
 - intent: affirm
   examples: |
     - yes
@@ -31,7 +36,6 @@ nlu:
     - of course
     - that sounds good
     - correct
-
 - intent: deny
   examples: |
     - no
@@ -41,7 +45,6 @@ nlu:
     - don't like that
     - no way
     - not really
-
 - intent: mood_great
   examples: |
     - perfect
@@ -58,7 +61,6 @@ nlu:
     - so so perfect
     - so good
     - so perfect
-
 - intent: mood_unhappy
   examples: |
     - my day was horrible
@@ -75,10 +77,16 @@ nlu:
     - extremly sad
     - so saad
     - so sad
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: fs_choice
+  examples: |
+    - film
+    - tv series
+    - movie
+
