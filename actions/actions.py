@@ -22,3 +22,14 @@ class ActionHelloWorld(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         dispatcher.utter_message(text="Hello World!")
         return []
+class Action_Utter_Prova(Action):
+    def name(self) -> Text:
+        return "action_utter_prova"
+        
+    def run(self, dispatcher: CollectingDispatcher,tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        name = str(tracker.get_slot('choice'))
+        output="Great Choice! Are you interested in a particular {} or would you like to see top trends?".format(name)
+
+        dispatcher.utter_message(text=output)
+        return []

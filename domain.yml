@@ -1,14 +1,25 @@
 version: "3.0"
 
 intents:
-  - greet
+  - greet:
+        use_entities: true
   - goodbye
   - affirm
   - deny
   - mood_great
   - mood_unhappy
   - bot_challenge
-  - fs_choice
+  - fs_choice:
+        use_entities: true
+
+entities:
+  - choice
+slots:
+   choice:
+     type: text
+     mappings:
+     - type: from_entity
+       entity: choice
 
 responses:
   utter_greet:
@@ -34,7 +45,12 @@ responses:
   - text: "Hi! What would you like to watch?"
 
   utter_prova:
-  - text: "Great Choice!"
+  - text: "Great Choice! Are you interested in a particular film or would you like to see top trends?"
+  - text: "Great Choice! Are you interested in a particular tv series or would you like to see top trends?"
+
+actions:
+
+- action_utter_prova  
 
 session_config:
   session_expiration_time: 60

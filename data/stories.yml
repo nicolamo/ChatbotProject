@@ -34,4 +34,4 @@ stories:
   - intent: greet
   - action: utter_visualizzazione 
   - intent: fs_choice
-  - action: utter_prova
+  - action: action_utter_prova
