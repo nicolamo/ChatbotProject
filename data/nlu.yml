@@ -4,31 +4,24 @@ nlu:
 - intent: greet
   examples: |
     - hey
+    - ciao
+    - salve
     - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+    - buon giorno
+    - buona sera
+    - ehila
+    - hey amico
+    - buon pomeriggio
 
 - intent: goodbye
   examples: |
     - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
+    - a presto
+    - arrivederci
+    - buona sera
     - goodbye
-    - have a nice day
-    - see you around
+    - buon proseguimento di giornata
     - bye bye
-    - see you later
 
 - intent: affirm
   examples: |

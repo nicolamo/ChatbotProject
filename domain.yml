@@ -11,7 +11,7 @@ intents:
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Hey! come stai?"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
@@ -21,7 +21,7 @@ responses:
   - text: "Did that help you?"
 
   utter_happy:
-  - text: "Great, carry on!"
+  - text: "Grande, continua così!"
 
   utter_goodbye:
   - text: "Bye"
