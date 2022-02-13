@@ -1,6 +1,0 @@
-[
-  {
-    "name": "choice",
-    "pattern": "(\\bfilm\\b|\\bseries\\b|\\bmovie\\b)"
-  }
-]

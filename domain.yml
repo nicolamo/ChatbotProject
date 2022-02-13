@@ -1,56 +1,71 @@
-version: "3.0"
-
-intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - fs_choice:
-      use_entities: true
-
-entities:
-  - choice
-slots:
-  choice:
-    type: text
-    mappings:
-    - type: from_entity
-      entity: choice
-
-responses:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
-  utter_visualizzazione:
-  - text: "Hi! What would you like to watch?"
-
-  utter_prova:
-  - text: "Great Choice! Are you interested in a particular film or would you like to see top trends?"
-  - text: "Great Choice! Are you interested in a particular tv series or would you like to see top trends?"
-
-actions:
-
-- action_utter_prova  
-
+version: '3.0'
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+intents:
+- greet
+- mood_great
+- fs_choice:
+    use_entities:
+    - choice
+- fs_scelta:
+    use_entities:
+    - scelta
+- goodbye
+- affirm
+- deny
+- mood_unhappy
+- bot_challenge
+- film:
+    use_entities:
+    - film
+entities:
+- choice
+- scelta
+- film
+slots:
+  choice:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: choice
+  scelta:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: scelta
+  film:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: film
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_visualizzazione:
+  - text: Hi! What would you like to watch?
+  utter_prova:
+  - text: Great Choice! Are you interested in a particular film or would you like to see top trends?
+  - text: Great Choice! Are you interested in a particular tv series or would you like to see top trends?
+  utter_choice:
+  - text: You chose {name}! Which film would you like to watch?
+actions:
+- action_hello_world
+- action_utter_choice
+- action_utter_prova
+- utter_visualizzazione
+- action_particular

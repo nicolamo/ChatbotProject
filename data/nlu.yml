@@ -1,5 +1,4 @@
 version: "3.0"
-
 nlu:
 - intent: greet
   examples: |
@@ -83,15 +82,51 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
-
 - intent: fs_choice
   examples: |
     - [film](choice)
     - i'd like [movie](choice)
-    
+    - i would like to watch [tv series](choice)
+    - i prefer to watch [film](choice)
+    - i want to watch [film](choice)
+- intent: fs_scelta
+  examples: |
+    - [particular film](scelta)
+    - i want to see [top trends](scelta)
+    - i'd like to see [particular movie](scelta)
+    - i prefer watching [particular tv serie](scelta)
+    - i decide to watch [particular film](scelta)
+- intent: film
+  examples: |
+    - [titolo_film](film)
+    - i'd like to watch [titolo film](film)
+    - i want to watch [titolo film](film)
 
 - lookup: choice
   examples: |
     - film
-    - series
+    - tv series
     - movie
+- lookup: scelta
+  examples: |
+    - particular film
+    - top trends
+    - top charts
+    - particular movie
+    - particular tv series
+    - particular picture
+    - specific film
+    - specific tv series
+
+- lookup: film
+  examples: |
+    - jojo rabbit
+    - roger rabbit
+    - the godfather
+    - shindler's list
+    - american pie
+    - paranormal activity
+    - scream
+    - halloween
+    - it 
+    - rocky

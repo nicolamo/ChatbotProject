@@ -11,3 +11,13 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Say hi anytime the user says greet
+  steps:
+  - intent: greet
+  - action: utter_visualizzazione
+
+- rule: particular film
+  steps:
+  - intent: film
+  - action: action_particular
