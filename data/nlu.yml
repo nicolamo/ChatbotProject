@@ -98,10 +98,10 @@ nlu:
     - i decide to watch [particular film](scelta)
 - intent: film
   examples: |
-    - [titolo_film](film)
-    - i'd like to watch [titolo film](film)
-    - i want to watch [titolo film](film)
-
+    - title: [titolo_film](film)!
+    - the title of the film is [titolo_film](film)
+    - his title is [titolo_film](film)
+    - the film is [titolo_film](film)
 - lookup: choice
   examples: |
     - film
@@ -117,16 +117,3 @@ nlu:
     - particular picture
     - specific film
     - specific tv series
-
-- lookup: film
-  examples: |
-    - jojo rabbit
-    - roger rabbit
-    - the godfather
-    - shindler's list
-    - american pie
-    - paranormal activity
-    - scream
-    - halloween
-    - it 
-    - rocky

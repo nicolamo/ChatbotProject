@@ -7,7 +7,7 @@
 
 # This is a simple example for a custom action which utters "Hello World!"
 
-from typing import Any, Text, Dict, List
+from typing import Any, Text, Dict, List, Optional, Any
 from urllib import response
 import json
 from pathlib import Path
@@ -19,7 +19,10 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.knowledge_base.storage import InMemoryKnowledgeBase
 from rasa_sdk.knowledge_base.actions import ActionQueryKnowledgeBase
 from rasa_sdk.events import SlotSet
-#
+
+from rasa_sdk import FormValidationAction
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.types import DomainDict
 #
 
 
@@ -51,8 +54,9 @@ class ActionUtterChoice(Action):
         return "action_utter_choice"
         
     def run(self, dispatcher: CollectingDispatcher,tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        print(name_global)
+        
         specific_choice = str(tracker.get_slot('scelta'))
+        print(specific_choice)
         if name_global == 'film' or name_global == 'movie' :
             if specific_choice == "particular film" or specific_choice == "particular movie":
                 dispatcher.utter_message(response="utter_choice", name=specific_choice)
@@ -80,8 +84,30 @@ class ActionParticular(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        particular = str(tracker.get_slot('film'))
+        #particular = str(tracker.get_slot('film'))
+        particular = str(tracker.latest_message.get('text'))
         print(particular)
         output="you chose {}".format(particular)
         dispatcher.utter_message(text=output)
         return []
+
+
+class ValidateFilm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_film_form"
+
+    def validate_film (self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate film value."""
+        return {"film": slot_value}
+
+    async def extract_film(
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
+    ) -> Dict[Text, Any]:
+        text = tracker.latest_message.get("text")
+        print(text + 'ciao')
+        return {"film": text}

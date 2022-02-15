@@ -35,10 +35,3 @@ stories:
     entities:
     - scelta
   - action: action_utter_choice
-  - intent: film
-    entities:
-    - film
-  - action: action_particular
-  
-  
-

@@ -4,25 +4,25 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
 - greet
-- mood_great
+- film:
+    use_entities:
+    - film
 - fs_choice:
     use_entities:
     - choice
 - fs_scelta:
     use_entities:
     - scelta
+- mood_great
 - goodbye
 - affirm
 - deny
 - mood_unhappy
 - bot_challenge
-- film:
-    use_entities:
-    - film
 entities:
 - choice
-- scelta
 - film
+- scelta
 slots:
   choice:
     type: text
@@ -40,8 +40,10 @@ slots:
     type: text
     influence_conversation: true
     mappings:
-    - type: from_entity
-      entity: film
+    - type: from_text
+      conditions:
+      - active_loop: film_form
+        requested_slot: film
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -63,9 +65,24 @@ responses:
   - text: Great Choice! Are you interested in a particular tv series or would you like to see top trends?
   utter_choice:
   - text: You chose {name}! Which film would you like to watch?
+  utter_film:
+  - text: great film {film}!
 actions:
 - action_hello_world
+- action_particular
 - action_utter_choice
 - action_utter_prova
+- utter_film
 - utter_visualizzazione
-- action_particular
+forms:
+  film_form:
+    required_slots:
+    - film
+    ignored_intents:
+    - greet
+    - goodbye
+    - affirm
+    - deny
+    - mood_great
+    - mood_unhappy
+    - bot_challenge

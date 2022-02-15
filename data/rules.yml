@@ -17,7 +17,23 @@ rules:
   - intent: greet
   - action: utter_visualizzazione
 
-- rule: particular film
+- rule : ciao
   steps:
-  - intent: film
-  - action: action_particular
+  - intent: fs_scelta
+  - action: action_utter_choice
+
+- rule: Activate form
+  steps:
+  - action: action_utter_choice
+  - action: film_form
+  - active_loop: film_form
+
+- rule: Submit form
+  condition:
+  - active_loop: film_form
+  steps:
+  - action: film_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_film
