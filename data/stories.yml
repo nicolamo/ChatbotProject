@@ -30,8 +30,33 @@ stories:
   - intent: fs_choice
     entities:
     - choice
-  - action: action_utter_prova
+  - slot_was_set:
+    - choice : football
+  - action: utter_football_paritcular
   - intent: fs_scelta
     entities:
     - scelta
-  - action: action_utter_choice
+  - slot_was_set:
+    - choice: particular team
+  - action: utter_football_team
+  - intent: squadra
+    entities:
+    - squadra
+  - action: action_particular
+
+- story: second path 
+  steps:
+  - intent: greet
+  - action: utter_visualizzazione 
+  - intent: fs_choice
+    entities:
+    - choice
+  - slot_was_set:
+    - choice : football
+  - action: utter_football_paritcular
+  - intent: fs_scelta
+    entities:
+    - scelta
+  - slot_was_set:
+    - choice: top news
+  - action: action_particular_football_topnews

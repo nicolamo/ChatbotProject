@@ -50,11 +50,9 @@ nlu:
     - great
     - amazing
     - feeling like a king
-    - wonderful
     - I am feeling very good
     - I am great
     - I am amazing
-    - I am going to save the world
     - super stoked
     - extremely good
     - so so perfect
@@ -84,36 +82,55 @@ nlu:
     - am I talking to a human?
 - intent: fs_choice
   examples: |
-    - [film](choice)
-    - i'd like [movie](choice)
-    - i would like to watch [tv series](choice)
-    - i prefer to watch [film](choice)
-    - i want to watch [film](choice)
+    - [football](choice)
+    - i'd like [basket](choice)
+    - i would like to watch [F1](choice)
+    - i would like info about [tennis](choice)
+    - i want [motogp](choice) info
 - intent: fs_scelta
   examples: |
-    - [particular film](scelta)
-    - i want to see [top trends](scelta)
-    - i'd like to see [particular movie](scelta)
-    - i prefer watching [particular tv serie](scelta)
-    - i decide to watch [particular film](scelta)
-- intent: film
+    - [particular team](scelta)
+    - i want to see [team](scelta) news
+    - i'd like to see [team](scelta) news
+    - i prefer see this [particular team](scelta)
+- intent: squadra
   examples: |
-    - title: [titolo_film](film)!
-    - the title of the film is [titolo_film](film)
-    - his title is [titolo_film](film)
-    - the film is [titolo_film](film)
+    - [atalanta](squadra)
+    - [milan](squadra)
 - lookup: choice
   examples: |
-    - film
-    - tv series
-    - movie
+    - football
+    - basket
+    - F1
+    - tennis
+    - motogp 
+    - formula e
+    - ski
+    - volley
 - lookup: scelta
   examples: |
-    - particular film
-    - top trends
-    - top charts
-    - particular movie
-    - particular tv series
-    - particular picture
-    - specific film
-    - specific tv series
+    - particular team
+    - team
+    - top news
+- lookup: squadra
+  examples: |
+    - atalanta
+    - bologna
+    - cagliari
+    - empoli
+    - fiorentina
+    - genoa
+    - inter
+    - juventus
+    - lazio
+    - milan 
+    - napoli
+    - roma
+    - salernitana
+    - sampdoria
+    - sassuolo
+    - spezia
+    - torino 
+    - udinese
+    - venezia
+    - verona

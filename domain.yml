@@ -3,16 +3,16 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- greet
-- film:
-    use_entities:
-    - film
-- fs_choice:
-    use_entities:
-    - choice
 - fs_scelta:
     use_entities:
     - scelta
+- squadra:
+    use_entities:
+    - squadra
+- greet
+- fs_choice:
+    use_entities:
+    - choice
 - mood_great
 - goodbye
 - affirm
@@ -21,7 +21,7 @@ intents:
 - bot_challenge
 entities:
 - choice
-- film
+- squadra
 - scelta
 slots:
   choice:
@@ -40,10 +40,8 @@ slots:
     type: text
     influence_conversation: true
     mappings:
-    - type: from_text
-      conditions:
-      - active_loop: film_form
-        requested_slot: film
+    - type: from_entity
+      entity: squadra
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -59,7 +57,7 @@ responses:
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_visualizzazione:
-  - text: Hi! What would you like to watch?
+  - text: Hi! I'm a sports news bot, which sports category are you interested in?
   utter_prova:
   - text: Great Choice! Are you interested in a particular film or would you like to see top trends?
   - text: Great Choice! Are you interested in a particular tv series or would you like to see top trends?
@@ -67,22 +65,16 @@ responses:
   - text: You chose {name}! Which film would you like to watch?
   utter_film:
   - text: great film {film}!
+  utter_football_paritcular:
+  - text: Great Choice! Are you interested in a particular Serie A team or would you like to see top news?
+  utter_football_team:
+  - text: Which Serie A team do you want to see the news about?
 actions:
 - action_hello_world
 - action_particular
 - action_utter_choice
 - action_utter_prova
 - utter_film
+- utter_football_paritcular
 - utter_visualizzazione
-forms:
-  film_form:
-    required_slots:
-    - film
-    ignored_intents:
-    - greet
-    - goodbye
-    - affirm
-    - deny
-    - mood_great
-    - mood_unhappy
-    - bot_challenge
+- action_particular_football_topnews
