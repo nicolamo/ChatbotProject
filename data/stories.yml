@@ -27,17 +27,9 @@ stories:
   steps:
   - intent: greet
   - action: utter_visualizzazione 
-  - intent: fs_choice
-    entities:
-    - choice
-  - slot_was_set:
-    - choice : football
+  - intent: fs_football
   - action: utter_football_paritcular
-  - intent: fs_scelta
-    entities:
-    - scelta
-  - slot_was_set:
-    - choice: particular team
+  - intent: fs_particular
   - action: utter_football_team
   - intent: squadra
     entities:
@@ -48,15 +40,16 @@ stories:
   steps:
   - intent: greet
   - action: utter_visualizzazione 
+  - intent: fs_football
+  - action: utter_football_paritcular
+  - intent: fs_topnews
+  - action: action_particular_football_topnews
+
+- story: topnewssport path 
+  steps:
+  - intent: greet
+  - action: utter_visualizzazione 
   - intent: fs_choice
     entities:
-    - choice
-  - slot_was_set:
-    - choice : football
-  - action: utter_football_paritcular
-  - intent: fs_scelta
-    entities:
-    - scelta
-  - slot_was_set:
-    - choice: top news
-  - action: action_particular_football_topnews
+    - choice: choice
+  - action: action_particular_topnews

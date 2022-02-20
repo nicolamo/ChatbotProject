@@ -2,27 +2,27 @@ version: '3.0'
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+  
 intents:
-- fs_scelta:
-    use_entities:
-    - scelta
-- squadra:
-    use_entities:
-    - squadra
 - greet
 - fs_choice:
     use_entities:
     - choice
+- squadra:
+    use_entities:
+    - squadra
 - mood_great
 - goodbye
 - affirm
 - deny
 - mood_unhappy
 - bot_challenge
+- fs_particular
+- fs_topnews
+- fs_football
 entities:
 - choice
 - squadra
-- scelta
 slots:
   choice:
     type: text
@@ -30,13 +30,7 @@ slots:
     mappings:
     - type: from_entity
       entity: choice
-  scelta:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: scelta
-  film:
+  squadra:
     type: text
     influence_conversation: true
     mappings:
@@ -68,13 +62,15 @@ responses:
   utter_football_paritcular:
   - text: Great Choice! Are you interested in a particular Serie A team or would you like to see top news?
   utter_football_team:
-  - text: Which Serie A team do you want to see the news about?
+  - text: Which Serie A team do you want to see the news about? 
 actions:
 - action_hello_world
 - action_particular
+- action_particular_football_topnews
 - action_utter_choice
 - action_utter_prova
 - utter_film
 - utter_football_paritcular
+- utter_football_team
 - utter_visualizzazione
-- action_particular_football_topnews
+- action_particular_topnews

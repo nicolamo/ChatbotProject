@@ -1,5 +1,6 @@
 version: "3.0"
 nlu:
+
 - intent: greet
   examples: |
     - hey
@@ -82,36 +83,63 @@ nlu:
     - am I talking to a human?
 - intent: fs_choice
   examples: |
-    - [football](choice)
+    - [tennis](choice)
     - i'd like [basket](choice)
-    - i would like to watch [F1](choice)
+    - i would like to watch [formula1](choice)
     - i would like info about [tennis](choice)
     - i want [motogp](choice) info
-- intent: fs_scelta
+    - [f1](choice)
+- intent: fs_football
   examples: |
-    - [particular team](scelta)
-    - i want to see [team](scelta) news
-    - i'd like to see [team](scelta) news
-    - i prefer see this [particular team](scelta)
+    - football 
+    - i'd like football
+    - i would like to watch football
+    - i would like info about fooball
+    - i want football info
+- intent: fs_particular
+  examples: |
+    - particular team
+    - i want to see teams news
+    - i'd like to see team news
+    - i prefer see this particular team
+- intent: fs_topnews
+  examples: |
+    - top news
+    - i want to see top news
+    - i'd like to see top news
+    - i prefer see this the top news
+
 - intent: squadra
   examples: |
     - [atalanta](squadra)
+    - [bologna](squadra)
+    - [cagliari](squadra)
+    - [empoli](squadra)
+    - [fiorentina](squadra)
+    - [genoa](squadra)
+    - [inter](squadra)
+    - [juventus](squadra)
+    - [lazio](squadra)
     - [milan](squadra)
+    - [napoli](squadra)
+    - [roma](squadra)
+    - [salernitana](squadra)
+    - [sampdoria](squadra)
+    - [sassuolo](squadra)
+    - [spezia](squadra)
+    - [torino](squadra)
+    - [udinese](squadra)
+    - [venezia](squadra)
+    - [verona](squadra)
 - lookup: choice
   examples: |
-    - football
     - basket
-    - F1
     - tennis
-    - motogp 
-    - formula e
+    - motogp
+    - formulae
+    - formula1
     - ski
     - volley
-- lookup: scelta
-  examples: |
-    - particular team
-    - team
-    - top news
 - lookup: squadra
   examples: |
     - atalanta
@@ -123,14 +151,18 @@ nlu:
     - inter
     - juventus
     - lazio
-    - milan 
+    - milan
     - napoli
     - roma
     - salernitana
     - sampdoria
     - sassuolo
     - spezia
-    - torino 
+    - torino
     - udinese
     - venezia
     - verona
+
+- synonym: formula1
+  examples: |
+    - f1
