@@ -89,6 +89,8 @@ nlu:
     - i would like info about [tennis](choice)
     - i want [motogp](choice) info
     - [f1](choice)
+    - [volley](choice)
+    - [sci](choice)
 - intent: fs_football
   examples: |
     - football 
@@ -138,7 +140,7 @@ nlu:
     - motogp
     - formulae
     - formula1
-    - ski
+    - sci
     - volley
 - lookup: squadra
   examples: |
