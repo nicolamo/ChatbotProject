@@ -2,6 +2,11 @@ version: "3.0"
 
 rules:
 
+- rule: start
+  steps:
+  - intent: start
+  - action: utter_iamabot
+  
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye

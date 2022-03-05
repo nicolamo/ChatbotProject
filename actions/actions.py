@@ -146,6 +146,74 @@ class ActionParticularTopNews(Action):
             dispatcher.utter_message(text=output)
         return []
 
+class ActionRank(Action):
+    def name(self) -> Text:
+        return "action_rank"
+
+    def run(self, dispatcher: CollectingDispatcher,tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        ciao = []
+        team = []
+        url = "https://www.legaseriea.it/it/serie-a/classifica"
+        re = requests.get(url)
+
+        try:
+            soup = BeautifulSoup(re.content, 'html.parser')
+            squad = soup.find_all("img", {'height':"30"})
+            for b in soup.find_all("td", {'class':"blue"}):
+                ciao.append(b.get_text().strip())
+            for a in squad:
+                team.append(a['title'])
+            output = "Pos: Team Points"
+            dispatcher.utter_message(text=output)
+            output_cls = []
+            for i in range(0,20):
+                output_cls.append("{}: {} {}".format(i+1, team[i], ciao[i]))
+            joined_string = "\n".join(output_cls)
+            dispatcher.utter_message(text=joined_string)    
+        except:
+            output = "Scrivi in modo corretto"
+            dispatcher.utter_message(text=output)
+
+        return []
+
+class ActionTopScorer(Action):
+    def name(self) -> Text:
+        return "action_top_scorer"
+
+    def run(self, dispatcher: CollectingDispatcher,tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        scorer = []
+        goals = []
+        url = "https://www.legaseriea.it/it/serie-a/statistiche"
+        re = requests.get(url)
+
+        try:
+            soup = BeautifulSoup(re.content, 'html.parser')
+            table = soup.find("tbody")
+            goal = table.find_all("td")
+            for b in table.find_all("a"):
+                scorer.append(b.get_text().strip())
+            for a in table.find_all("td"):
+                goals.append(a.get_text().strip())
+            list = [goals[x:x+6] for x in range(0, len(goals), 6)]
+            list = [x[0:4] for x in list]
+            for x in list:
+                x.pop(1)
+            output = ["Position", "Player", "Goals"]
+            output_cls = []
+            length_list = [len(element) for row in list for element in row]
+            column_width = max(length_list)
+            output = "".join(element.ljust(column_width +2) for element in output)
+            for row in list:
+                row = "".join(element.ljust(column_width + 2) for element in row)
+                output_cls.append("{}".format(row))
+            joined_string = "\n".join(output_cls)
+            dispatcher.utter_message(text=output)
+            dispatcher.utter_message(text=joined_string)    
+        except:
+            output = "Write Correctly"
+            dispatcher.utter_message(text=output)
+
+        return []
 
 
 

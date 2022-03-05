@@ -1,6 +1,11 @@
 version: "3.0"
 nlu:
-
+- intent: start
+  examples: | 
+    - start
+    - open
+    - begin
+    - init
 - intent: greet
   examples: |
     - hey
@@ -133,6 +138,17 @@ nlu:
     - [udinese](squadra)
     - [venezia](squadra)
     - [verona](squadra)
+
+- intent: rank 
+  examples: |
+    - i want to see rank
+    - League Table
+    - i want to see league table
+- intent: scorer
+  examples: |
+    - top scorer
+    - i want to see top scorer
+    - i want to see the top scorers of Serie A
 - lookup: choice
   examples: |
     - basket
@@ -168,3 +184,4 @@ nlu:
 - synonym: formula1
   examples: |
     - f1
+

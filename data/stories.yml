@@ -53,3 +53,21 @@ stories:
     entities:
     - choice: choice
   - action: action_particular_topnews
+
+- story: rank path 
+  steps:
+  - intent: greet
+  - action: utter_visualizzazione 
+  - intent: fs_football
+  - action: utter_football_paritcular
+  - intent: rank
+  - action: action_rank
+
+- story: top scorer path 
+  steps:
+  - intent: greet
+  - action: utter_visualizzazione 
+  - intent: fs_football
+  - action: utter_football_paritcular
+  - intent: scorer
+  - action: action_top_scorer

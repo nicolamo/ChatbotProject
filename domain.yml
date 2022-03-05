@@ -20,6 +20,9 @@ intents:
 - fs_particular
 - fs_topnews
 - fs_football
+- start
+- rank
+- scorer
 entities:
 - choice
 - squadra
@@ -52,15 +55,12 @@ responses:
   - text: I am a bot, powered by Rasa.
   utter_visualizzazione:
   - text: Hi! I'm a sports news bot, which sports category are you interested in?
-  utter_prova:
-  - text: Great Choice! Are you interested in a particular film or would you like to see top trends?
-  - text: Great Choice! Are you interested in a particular tv series or would you like to see top trends?
   utter_choice:
   - text: You chose {name}! Which film would you like to watch?
   utter_film:
   - text: great film {film}!
   utter_football_paritcular:
-  - text: Great Choice! Are you interested in a particular Serie A team or would you like to see top news?
+  - text: Great Choice! Are you interested in a particular Serie A team, top football news, Serie A league table, Serie A top scorer?
   utter_football_team:
   - text: Which Serie A team do you want to see the news about? 
 actions:
@@ -74,3 +74,5 @@ actions:
 - utter_football_team
 - utter_visualizzazione
 - action_particular_topnews
+- action_rank
+- action_top_scorer
