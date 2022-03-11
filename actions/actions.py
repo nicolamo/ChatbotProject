@@ -49,10 +49,10 @@ class ActionUtterProva(Action):
         return "action_utter_prova"
         
     def run(self, dispatcher: CollectingDispatcher,tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        name = str(tracker.get_slot('choice'))
+        name = str(tracker.get_slot('sport'))
         global name_global
         name_global = name
-        output="Great Choice! Are you interested in a particular {} or would you like to see top trends?".format(name)
+        output="Great sport! Are you interested in a particular {} or would you like to see top trends?".format(name)
     
         dispatcher.utter_message(text=output)
         return []
@@ -125,7 +125,8 @@ class ActionParticularTopNews(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         link = []
         title = []
-        particular = str(tracker.get_slot('choice'))
+        particular = str(tracker.get_slot('sport'))
+        print(particular)
         url = "https://www.sportmediaset.mediaset.it/{}/".format(particular.lower())
         re = requests.get(url)
         try:
@@ -171,7 +172,7 @@ class ActionRank(Action):
             joined_string = "\n".join(output_cls)
             dispatcher.utter_message(text=joined_string)    
         except:
-            output = "Scrivi in modo corretto"
+            output = "Write correctly"
             dispatcher.utter_message(text=output)
 
         return []

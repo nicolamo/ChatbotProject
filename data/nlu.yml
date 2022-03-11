@@ -6,6 +6,7 @@ nlu:
     - open
     - begin
     - init
+  
 - intent: greet
   examples: |
     - hey
@@ -21,6 +22,7 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+  
 - intent: goodbye
   examples: |
     - cu
@@ -33,6 +35,7 @@ nlu:
     - see you around
     - bye bye
     - see you later
+  
 - intent: affirm
   examples: |
     - yes
@@ -41,6 +44,7 @@ nlu:
     - of course
     - that sounds good
     - correct
+  
 - intent: deny
   examples: |
     - no
@@ -50,6 +54,7 @@ nlu:
     - don't like that
     - no way
     - not really
+  
 - intent: mood_great
   examples: |
     - perfect
@@ -64,6 +69,7 @@ nlu:
     - so so perfect
     - so good
     - so perfect
+  
 - intent: mood_unhappy
   examples: |
     - my day was horrible
@@ -80,41 +86,50 @@ nlu:
     - extremly sad
     - so saad
     - so sad
+  
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
-- intent: fs_choice
+  
+- intent: fs_sport
   examples: |
-    - [tennis](choice)
-    - i'd like [basket](choice)
-    - i would like to watch [formula1](choice)
-    - i would like info about [tennis](choice)
-    - i want [motogp](choice) info
-    - [f1](choice)
-    - [volley](choice)
-    - [sci](choice)
+    - [tennis](sport)
+    - i'd like [basket](sport)
+    - i would like to watch [formula1](sport)
+    - i would like news about [tennis](sport)
+    - i want [motogp](sport) info
+    - [f1](sport)
+    - I'm interested in [volleyball](sport) news
+    - [ski](sport)
+  
 - intent: fs_football
   examples: |
     - football 
     - i'd like football
-    - i would like to watch football
-    - i would like info about fooball
-    - i want football info
+    - i would like to watch football 
+    - i would like football news
+    - i want football news
+
 - intent: fs_particular
   examples: |
     - particular team
     - i want to see teams news
     - i'd like to see team news
-    - i prefer see this particular team
+    - i prefer see this particular team news
+    - i'm interested in particular team news
+    - i would like to be informed of the latest news from a particular team
+
 - intent: fs_topnews
   examples: |
-    - top news
-    - i want to see top news
+    - football top news
+    - i want to see football top news
     - i'd like to see top news
     - i prefer see this the top news
+    - i'm interested in football news
+    - i'm interested in the latest football news
 
 - intent: squadra
   examples: |
@@ -142,14 +157,23 @@ nlu:
 - intent: rank 
   examples: |
     - i want to see rank
-    - League Table
+    - league table
     - i want to see league table
+    - i'm interested in the Serie A standings
+    - i want to see the placement of serie a teams
+    
+
 - intent: scorer
   examples: |
-    - top scorer
+    - top scorers
     - i want to see top scorer
     - i want to see the top scorers of Serie A
-- lookup: choice
+    - i want to see the top scorer ranking
+    - i'm interested in the top scorer ranking
+    - i want to see the Serie A scorers
+    - i'd like to see the top scorers
+
+- lookup: sport
   examples: |
     - basket
     - tennis
@@ -158,6 +182,7 @@ nlu:
     - formula1
     - sci
     - volley
+
 - lookup: squadra
   examples: |
     - atalanta
@@ -184,4 +209,16 @@ nlu:
 - synonym: formula1
   examples: |
     - f1
+    - formula 1
 
+- synonym: formulae
+  examples: |
+    - formula e
+    
+- synonym: volley
+  examples: |
+    - volleyball
+
+- synonym: sci
+  examples: |
+    - ski

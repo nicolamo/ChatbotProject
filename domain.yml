@@ -5,9 +5,9 @@ session_config:
   
 intents:
 - greet
-- fs_choice:
+- fs_sport:
     use_entities:
-    - choice
+    - sport
 - squadra:
     use_entities:
     - squadra
@@ -24,15 +24,15 @@ intents:
 - rank
 - scorer
 entities:
-- choice
+- sport
 - squadra
 slots:
-  choice:
+  sport:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
-      entity: choice
+      entity: sport
   squadra:
     type: text
     influence_conversation: true
@@ -51,28 +51,29 @@ responses:
   - text: Great, carry on!
   utter_goodbye:
   - text: Bye
-  utter_iamabot:
-  - text: I am a bot, powered by Rasa.
+  utter_saluto:
+  - text: Hi! I'm a sports news bot, which sports category are you interested in?
   utter_visualizzazione:
   - text: Hi! I'm a sports news bot, which sports category are you interested in?
-  utter_choice:
+  utter_sport:
   - text: You chose {name}! Which film would you like to watch?
   utter_film:
   - text: great film {film}!
   utter_football_paritcular:
-  - text: Great Choice! Are you interested in a particular Serie A team, top football news, Serie A league table, Serie A top scorer?
+  - text: Great sport! Are you interested in a particular Serie A team, top football news, Serie A league table, Serie A top scorer?
   utter_football_team:
   - text: Which Serie A team do you want to see the news about? 
 actions:
 - action_hello_world
 - action_particular
 - action_particular_football_topnews
-- action_utter_choice
+- action_utter_sport
 - action_utter_prova
 - utter_film
 - utter_football_paritcular
 - utter_football_team
 - utter_visualizzazione
+- utter_saluto
 - action_particular_topnews
 - action_rank
 - action_top_scorer

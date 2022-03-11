@@ -26,7 +26,7 @@ stories:
 - story: first path 
   steps:
   - intent: greet
-  - action: utter_visualizzazione 
+  - action: utter_saluto
   - intent: fs_football
   - action: utter_football_paritcular
   - intent: fs_particular
@@ -39,25 +39,25 @@ stories:
 - story: second path 
   steps:
   - intent: greet
-  - action: utter_visualizzazione 
+  - action: utter_saluto
   - intent: fs_football
   - action: utter_football_paritcular
   - intent: fs_topnews
   - action: action_particular_football_topnews
 
-- story: topnewssport path 
+- story: topnewsgenericsport path 
   steps:
   - intent: greet
-  - action: utter_visualizzazione 
-  - intent: fs_choice
+  - action: utter_saluto
+  - intent: fs_sport
     entities:
-    - choice: choice
+    - sport: sport
   - action: action_particular_topnews
 
 - story: rank path 
   steps:
   - intent: greet
-  - action: utter_visualizzazione 
+  - action: utter_saluto 
   - intent: fs_football
   - action: utter_football_paritcular
   - intent: rank
@@ -66,7 +66,7 @@ stories:
 - story: top scorer path 
   steps:
   - intent: greet
-  - action: utter_visualizzazione 
+  - action: utter_saluto 
   - intent: fs_football
   - action: utter_football_paritcular
   - intent: scorer
